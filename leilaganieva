@@ -1,0 +1,56 @@
+package ru.odnoklassniki.generateIntSequence;
+import org.junit.Assert;
+import org.junit.Test;
+import ru.odnoklassniki.ClassToBeTested;
+import java.util.List;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.fail;
+
+public class TestGenerateIntSequence {
+@Test
+public void testCorrectifNumEqualsZeroCountEqualsNine() throws Exeption{
+final Integer  Num=0;
+final count=9;
+final List<Integer>sequence = ClassToBeTested.generateIntSequense (num,count);
+Assert.assertThat(
+"The length of sequence isn't equal 9",
+result,
+hasSize(equalTo(count))
+);
+}
+@Test
+public void testifcountlessthanzero() {
+try { ClassToBeTested.generateIntSequence(5,-2);
+Assert.fail ("Method did not throw exception when the length of sequence was less than 0");
+} catch (IllegalalArgumentExeption e) {
+Assert.assertEquals("The length of sequence must be greater than 0", e.getMessage());
+}
+}
+
+@Test
+public void testCorrectifCountnotEqualszero() throws Exeption{
+final Integer  Num=4;
+final count=0;
+final List<Integer>sequence = ClassToBeTested.generateIntSequense (num,count);
+Assert.fail ("Method did not throw exception when the length of sequence was equal 0");
+} catch (IllegalalArgumentExeption e) {
+Assert.assertEquals("The length of sequence must be greater than 0", e.getMessage());
+}
+}
+@Test
+public void testIfSumOfNumAndCountGreaterThanMaxValueOfInteger () throws Exeption{
+final Int  Num= Integer.Max_Value - 1;
+final int count=5;
+
+try { ClassToBeTested.generateIntSequence(num,count);
+Assert.fail ("Method did not throw exception when sum of the length of sequence and the first value was greater than Integer.Max_Value ");
+} catch (IllegalalArgumentExeption e) {
+Assert.assertEquals("The sum of the length of sequence and the first value didn't greater than Integer.Max_Value ", e.getMessage());
+}
+}
+}
+
+
+
+
